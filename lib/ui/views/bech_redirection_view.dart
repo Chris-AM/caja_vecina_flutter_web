@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mockup_caja_vecina/ui/buttons/link_text.dart';
 
 import '../../shared/shared.dart';
 
@@ -28,13 +29,7 @@ class BechRedirectionView extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                GlobalMessages.bechRedirection,
-                style: const TextStyle(color: AppTheme.linksColor),
-              ),
-            )
+            LinkText(text: GlobalMessages.bechRedirection),
           ],
         ),
       ],
