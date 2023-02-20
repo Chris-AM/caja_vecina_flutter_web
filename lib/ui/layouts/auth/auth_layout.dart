@@ -35,6 +35,10 @@ class _DesktopBody extends StatelessWidget {
         children: [
           const CajaVecinaImage(),
           CajaVecinaAccess(child: child),
+          const SizedBox(
+            height: 30,
+          ),
+          const BechRedirection(),
         ],
       ),
     );
