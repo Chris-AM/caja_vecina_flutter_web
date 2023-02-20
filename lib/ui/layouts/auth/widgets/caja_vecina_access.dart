@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:mockup_caja_vecina/app_theme.dart';
+import 'package:mockup_caja_vecina/shared/shared.dart';
 import 'custom_title.dart';
 
 class CajaVecinaAccess extends StatelessWidget {
@@ -17,9 +17,9 @@ class CajaVecinaAccess extends StatelessWidget {
     return Center(
       //? View Container
       child: Container(
-        height: 500,
+        height: 450,
         width: viewSize,
-        decoration: customDecoration(),
+        decoration: _customDecoration(),
         child: Column(
           children: [
             const CustomTitle(),
@@ -37,21 +37,10 @@ class CajaVecinaAccess extends StatelessWidget {
     );
   }
 
-  BoxDecoration customDecoration() {
+  BoxDecoration _customDecoration() {
     return BoxDecoration(
-      borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10)),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 5,
-          blurRadius: 7,
-          offset: const Offset(0, 3), // changes position of shadow
-        ),
-      ],
+      borderRadius: AppTheme.rounded10,
+      boxShadow: [AppTheme.boxShadow],
       color: AppTheme.loginBackground,
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mockup_caja_vecina/app_theme.dart';
+import 'package:mockup_caja_vecina/shared/shared.dart';
 
 class CustomTitle extends StatelessWidget {
   const CustomTitle({super.key});
@@ -18,7 +18,7 @@ class CustomTitle extends StatelessWidget {
           FittedBox(
             fit: BoxFit.contain,
             child: Text(
-              'Ingresa al portal caja vecina',
+              GlobalMessages.authTitle,
               style: GoogleFonts.montserratAlternates(
                 fontSize: 14,
                 color: AppTheme.fontColor,
