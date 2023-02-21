@@ -3,7 +3,7 @@ import '../ui/views/views.dart';
 
 class AuthRouterHandler {
   static Handler login = Handler(handlerFunc: ((context, parameters) {
-    return const LoginView();
+    return LoginView();
   }));
   static Handler register = Handler(handlerFunc: ((context, parameters) {
     return const RegisterView();
