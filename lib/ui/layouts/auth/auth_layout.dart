@@ -15,13 +15,13 @@ class AuthLayout extends StatelessWidget {
           (size.width > 1000)
               ? _DesktopBody(
                   child,
-                  500,
-                  550,
+                  400,
+                  450,
                 )
               : _MobileBody(
                   child,
-                  300,
-                  350,
+                  400,
+                  450,
                 ),
         ],
       ),

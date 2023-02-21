@@ -18,22 +18,24 @@ class CajaVecinaAccess extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       //? View Container
-      child: Container(
-        height: height,
-        width: width,
-        decoration: _customDecoration(),
-        child: Column(
-          children: [
-            const CustomTitle(),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: height * .8,
-              width: width,
-              child: child,
-            ),
-          ],
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: height),
+        child: Container(
+          width: width,
+          decoration: _customDecoration(),
+          child: Column(
+            children: [
+              const CustomTitle(),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: height * .8,
+                width: width,
+                child: child,
+              ),
+            ],
+          ),
         ),
       ),
     );

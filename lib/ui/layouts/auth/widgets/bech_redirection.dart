@@ -13,11 +13,13 @@ class BechRedirection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: _customDecoration(),
-      width: width,
-      height: height,
-      child: const BechRedirectionView(),
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: height),
+      child: Container(
+        decoration: _customDecoration(),
+        width: width,
+        child: const BechRedirectionView(),
+      ),
     );
   }
 

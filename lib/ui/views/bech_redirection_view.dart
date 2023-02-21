@@ -13,7 +13,10 @@ class BechRedirectionView extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(GlobalMessages.bechOption),
+        Text(
+          GlobalMessages.bechOption,
+          textAlign: TextAlign.center,
+        ),
         Text(GlobalMessages.bechDisclaimer),
         const SizedBox(
           height: 5,
