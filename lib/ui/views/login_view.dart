@@ -1,117 +1,71 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mockup_caja_vecina/shared/app_theme.dart';
+import 'package:mockup_caja_vecina/ui/buttons/link_text.dart';
+
+import '../layouts/auth/widgets/input_titles.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Email',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-            textAlign: TextAlign.left,
-          ),
-          const TextField(
-            style: TextStyle(
-              color: Colors.black,
-            ),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: "juanmolinar@almacenaqui.cl",
-              hintStyle: TextStyle(
-                fontSize: 14,
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.grey,
-                  width: 1.0,
-                  style: BorderStyle.solid,
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 370),
+          child: Form(
+              child: Column(
+            children: [
+              const InputTitles(title: 'Mail'),
+              TextFormField(
+                // validator: ,
+                style: const TextStyle(color: Colors.white),
+                decoration: buildInputDecoration(
+                  hint: 'lalala@lalala.cl',
                 ),
               ),
-            ),
-            textAlign: TextAlign.left,
-            maxLines: 1,
-            keyboardType: TextInputType.text,
-            // controller: myController,
-            maxLength: 30,
-          ),
-          const Text('Contraseña'),
-          const TextField(
-            obscureText: true,
-            style: TextStyle(
-              color: Colors.black,
-            ),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.grey,
-                  width: 1.0,
-                  style: BorderStyle.solid,
-                ),
+              const SizedBox(height: 20),
+              const InputTitles(title: 'Contraseña'),
+              TextFormField(
+                // validator: ,
+                obscureText: true,
+                style: const TextStyle(color: Colors.white),
+                decoration: buildInputDecoration(),
               ),
-            ),
-            textAlign: TextAlign.left,
-            maxLines: 1,
-            keyboardType: TextInputType.text,
-            // controller: myController,
-            maxLength: 30,
-          ),
-          GestureDetector(
-            onTap: () => _launchURL(), // call the _launchURL here
-            child: const Text(
-              "¿Olvidaste tu contraseña?",
-              style: TextStyle(fontSize: 16.0, color: Colors.blue),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              // La acción que se ejecutará cuando se presione el botón
-            },
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
+              const SizedBox(height: 20),
+              LinkText(
+                text: '¿Olvidaste Tu Contraseña?',
+                onPressed: () {
+                  // ignore: todo
+                  //! TODO GOTO FORGOTTEN PASS
+                  // ignore: avoid_print
+                  print('GOTO 4GO10 P4SS');
+                },
               ),
-            ),
-            child: const Text('Continuar'),
-          ),
-          const Text(
-            '¿No tienes cuenta Compraqui?',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-            textAlign: TextAlign.left,
-          ),
-          GestureDetector(
-            // onTap: () => _launchURL(), // call the _launchURL here
-            child: const Text(
-              "Crear cuenta",
-              style: TextStyle(fontSize: 16.0, color: Colors.blue),
-            ),
-          ),
-        ],
+            ],
+          )),
+        ),
       ),
     );
   }
-}
 
-_launchURL() async {
-  var url = Uri.parse('https://www.google.com');
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
-  } else {
-    throw 'Could not launch $url';
+  InputDecoration buildInputDecoration({
+    String? hint,
+  }) {
+    return InputDecoration(
+      border: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.grey.withOpacity(0.3),
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.grey.withOpacity(0.3),
+        ),
+      ),
+      hintText: hint,
+    );
   }
 }
