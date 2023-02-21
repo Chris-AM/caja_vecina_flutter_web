@@ -29,7 +29,10 @@ class BechRedirectionView extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            LinkText(text: GlobalMessages.bechRedirection),
+            LinkText(
+              text: GlobalMessages.bechRedirection,
+              onPressed: () {},
+            ),
           ],
         ),
       ],
