@@ -3,17 +3,20 @@ import 'package:mockup_caja_vecina/shared/shared.dart';
 import 'package:mockup_caja_vecina/ui/views/bech_redirection_view.dart';
 
 class BechRedirection extends StatelessWidget {
-  const BechRedirection({super.key});
+  final double width;
+  final double height;
+  const BechRedirection({
+    super.key,
+    required this.width,
+    required this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final viewSize = size.width / 3;
-
     return Container(
       decoration: _customDecoration(),
-      width: viewSize,
-      height: 150,
+      width: width,
+      height: height,
       child: const BechRedirectionView(),
     );
   }

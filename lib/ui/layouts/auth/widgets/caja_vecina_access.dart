@@ -5,20 +5,22 @@ import 'custom_title.dart';
 
 class CajaVecinaAccess extends StatelessWidget {
   final Widget child;
+  final double width;
+  final double height;
   const CajaVecinaAccess({
     super.key,
     required this.child,
+    required this.width,
+    required this.height,
   });
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final viewSize = size.width / 3;
     return Center(
       //? View Container
       child: Container(
-        height: 450,
-        width: viewSize,
+        height: height,
+        width: width,
         decoration: _customDecoration(),
         child: Column(
           children: [
@@ -27,8 +29,8 @@ class CajaVecinaAccess extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: 350,
-              width: viewSize,
+              height: height * .8,
+              width: width,
               child: child,
             ),
           ],

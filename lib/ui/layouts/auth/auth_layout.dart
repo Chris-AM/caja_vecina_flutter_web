@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mockup_caja_vecina/shared/app_theme.dart';
 import 'package:mockup_caja_vecina/ui/layouts/auth/widgets/widgets.dart';
 
 class AuthLayout extends StatelessWidget {
@@ -7,12 +8,21 @@ class AuthLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: ListView(
         children: [
-          //? Desktop
-          _DesktopBody(child)
-          //? Mobile
+          (size.width > 1000)
+              ? _DesktopBody(
+                  child,
+                  500,
+                  550,
+                )
+              : _MobileBody(
+                  child,
+                  300,
+                  350,
+                ),
         ],
       ),
     );
@@ -21,7 +31,13 @@ class AuthLayout extends StatelessWidget {
 
 class _DesktopBody extends StatelessWidget {
   final Widget child;
-  const _DesktopBody(this.child);
+  final double width;
+  final double height;
+  const _DesktopBody(
+    this.child,
+    this.width,
+    this.height,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -30,25 +46,63 @@ class _DesktopBody extends StatelessWidget {
     return Container(
       width: size.width,
       height: size.height,
-      decoration: backgroundImage(),
+      decoration: AppTheme.backgroundImage(),
       child: Column(
         children: [
           const CajaVecinaImage(),
-          CajaVecinaAccess(child: child),
+          CajaVecinaAccess(
+            height: height,
+            width: width,
+            child: child,
+          ),
           const SizedBox(
             height: 30,
           ),
-          const BechRedirection(),
+          BechRedirection(
+            height: 120,
+            width: width,
+          ),
         ],
       ),
     );
   }
+}
 
-  BoxDecoration backgroundImage() {
-    return const BoxDecoration(
-        image: DecorationImage(
-      image: AssetImage('background-image.png'),
-      fit: BoxFit.cover,
-    ));
+class _MobileBody extends StatelessWidget {
+  final Widget child;
+  final double width;
+  final double height;
+  const _MobileBody(
+    this.child,
+    this.width,
+    this.height,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    //? Background
+    return Container(
+      width: size.width,
+      height: size.height,
+      decoration: AppTheme.backgroundImage(),
+      child: Column(
+        children: [
+          const CajaVecinaImage(),
+          CajaVecinaAccess(
+            height: height,
+            width: width,
+            child: child,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          BechRedirection(
+            height: 120,
+            width: width,
+          ),
+        ],
+      ),
+    );
   }
 }

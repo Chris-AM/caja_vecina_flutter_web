@@ -14,4 +14,13 @@ class AppTheme {
     blurRadius: 7,
     offset: const Offset(0, 3),
   );
+
+  //? Images
+  static BoxDecoration backgroundImage() {
+    return const BoxDecoration(
+        image: DecorationImage(
+      image: AssetImage('background-image.png'),
+      fit: BoxFit.cover,
+    ));
+  }
 }
