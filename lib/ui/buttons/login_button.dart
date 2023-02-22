@@ -31,7 +31,7 @@ class LoginButton extends StatelessWidget {
           isFilled ? color : Colors.grey.withOpacity(0.4),
         ),
       ),
-      onPressed: () => onPressed,
+      onPressed: () => onPressed(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Text(
