@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:mockup_caja_vecina/providers/providers.dart';
 import 'package:mockup_caja_vecina/ui/buttons/link_text.dart';
@@ -32,7 +33,14 @@ class LoginView extends StatelessWidget {
                           children: [
                             const InputTitles(title: 'Mail'),
                             TextFormField(
-                              // validator: ,
+                              validator: (value) {
+                                if (!EmailValidator.validate(value ?? '')) {
+                                  return 'Email Inválido';
+                                }
+                                return null;
+                              },
+                              onChanged: (value) =>
+                                  loginFormProvider.email = value,
                               style: const TextStyle(color: Colors.black),
                               decoration: AppTheme.buildInputDecoration(
                                 hint: 'lalala@lalala.cl',
@@ -47,6 +55,8 @@ class LoginView extends StatelessWidget {
                                 }
                                 return null;
                               },
+                              onChanged: (value) =>
+                                  loginFormProvider.password = value,
                               obscureText: true,
                               style: const TextStyle(color: Colors.black),
                               decoration: AppTheme.buildInputDecoration(),
