@@ -25,4 +25,23 @@ class AppTheme {
       fit: BoxFit.cover,
     ));
   }
+
+  //? Auth Inputs
+  static InputDecoration buildInputDecoration({
+    String? hint,
+  }) {
+    return InputDecoration(
+      border: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.grey.withOpacity(0.3),
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.grey.withOpacity(0.3),
+        ),
+      ),
+      hintText: hint,
+    );
+  }
 }

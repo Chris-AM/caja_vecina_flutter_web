@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/shared.dart';
 import '../buttons/buttons.dart';
 import '../layouts/auth/widgets/widgets.dart';
 
 class BechView extends StatelessWidget {
   const BechView({super.key});
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 30),
@@ -31,8 +32,8 @@ class BechView extends StatelessWidget {
           TextFormField(
             // validator: ,
             style: const TextStyle(color: Colors.white),
-            decoration: buildInputDecoration(
-              hint: '*********',
+            decoration: AppTheme.buildInputDecoration(
+              hint: '11.111.111-1',
             ),
           ),
           const SizedBox(height: 20),
@@ -41,7 +42,7 @@ class BechView extends StatelessWidget {
             // validator: ,
             obscureText: true,
             style: const TextStyle(color: Colors.white),
-            decoration: buildInputDecoration(),
+            decoration: AppTheme.buildInputDecoration(hint: '**********'),
           ),
           const SizedBox(height: 20),
           SizedBox(
@@ -64,24 +65,6 @@ class BechView extends StatelessWidget {
           ),
         ],
       )),
-    );
-  }
-
-  InputDecoration buildInputDecoration({
-    String? hint,
-  }) {
-    return InputDecoration(
-      border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.grey.withOpacity(0.3),
-        ),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.grey.withOpacity(0.3),
-        ),
-      ),
-      hintText: hint,
     );
   }
 }
