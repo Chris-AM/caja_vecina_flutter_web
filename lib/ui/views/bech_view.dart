@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mockup_caja_vecina/providers/providers.dart';
 import 'package:provider/provider.dart';
+import 'package:rut_utils/rut_utils.dart';
 
 import '../../shared/shared.dart';
 import '../buttons/buttons.dart';
@@ -30,16 +31,25 @@ class BechView extends StatelessWidget {
                       children: [
                         const InputTitles(title: 'RUT'),
                         TextFormField(
-                          // validator: ,
-                          style: const TextStyle(color: Colors.white),
+                          validator: validateRut,
+                          inputFormatters: [RutFormatter()],
+                          style: const TextStyle(color: Colors.black),
                           decoration: AppTheme.buildInputDecoration(
                             hint: '11.111.111-1',
                           ),
+                          onChanged: (value) => bechFormProvider.rut = value,
                         ),
                         const SizedBox(height: 20),
                         const InputTitles(title: 'Contraseña'),
                         TextFormField(
-                          // validator: ,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Ingrese su contraseña';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) =>
+                              bechFormProvider.password = value,
                           obscureText: true,
                           style: const TextStyle(color: Colors.white),
                           decoration:
