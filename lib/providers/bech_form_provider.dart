@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class LoginFormProvider extends ChangeNotifier {
+class BechFormProvider extends ChangeNotifier {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  String email = '';
+  String rut = '';
   String password = '';
 
   validateForm() {
