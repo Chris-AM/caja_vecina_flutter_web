@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-class LoginFormProvider extends ChangeNotifier {
+class BechFormProvider extends ChangeNotifier {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  String email = '';
+  String rut = '';
   String password = '';
-  bool _obscureText = true;
-  bool get obscureText => _obscureText;
 
   validateForm() {
     if (formKey.currentState!.validate()) {
@@ -14,10 +12,5 @@ class LoginFormProvider extends ChangeNotifier {
     } else {
       return false;
     }
-  }
-
-  updateObscureText() {
-    _obscureText = !_obscureText;
-    notifyListeners();
   }
 }
