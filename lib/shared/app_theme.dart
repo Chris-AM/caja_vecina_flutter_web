@@ -31,17 +31,19 @@ class AppTheme {
     String? hint,
   }) {
     return InputDecoration(
-      border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.grey.withOpacity(0.3),
-        ),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.grey.withOpacity(0.3),
-        ),
-      ),
+      filled: true,
+      fillColor: Colors.white,
       hintText: hint,
+      hintStyle: const TextStyle(
+        fontSize: 14,
+      ),
+      border: const OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.grey,
+          width: 1.0,
+          style: BorderStyle.solid,
+        ),
+      ),
     );
   }
 }

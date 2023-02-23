@@ -20,78 +20,120 @@ class LoginView extends StatelessWidget {
             final loginFormProvider =
                 Provider.of<LoginFormProvider>(context, listen: false);
             return Container(
-              margin: const EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.only(top: 5),
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Center(
-                child: Column(
-                  children: [
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 370),
-                      child: Form(
-                        key: loginFormProvider.formKey,
-                        child: Column(
-                          children: [
-                            const InputTitles(title: 'Mail'),
-                            TextFormField(
-                              validator: (value) {
-                                if (!EmailValidator.validate(value ?? '')) {
-                                  return 'Email Inválido';
-                                }
-                                return null;
-                              },
-                              onChanged: (value) =>
-                                  loginFormProvider.email = value,
-                              style: const TextStyle(color: Colors.black),
-                              decoration: AppTheme.buildInputDecoration(
-                                hint: 'lalala@lalala.cl',
-                              ),
+              child: Column(
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 370),
+                    child: Form(
+                      key: loginFormProvider.formKey,
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Email',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
                             ),
-                            const SizedBox(height: 20),
-                            //? Password
-                            TextFormField(
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Ingrese su contraseña';
-                                }
-                                return null;
-                              },
-                              onChanged: (value) =>
-                                  loginFormProvider.password = value,
-                              obscureText: true,
-                              style: const TextStyle(color: Colors.black),
-                              decoration: AppTheme.buildInputDecoration(),
+                            textAlign: TextAlign.left,
+                          ),
+                          const SizedBox(height: 5),
+                          TextFormField(
+                            validator: (value) {
+                              if (!EmailValidator.validate(value ?? '')) {
+                                return 'Ingresa un email válido';
+                              }
+                              return null;
+                            },
+                            onChanged: (value) =>
+                                loginFormProvider.email = value,
+                            style: const TextStyle(color: Colors.black),
+                            decoration: AppTheme.buildInputDecoration(
+                              hint: 'juanmolinar@almacenaqui.cl',
                             ),
-                            const SizedBox(height: 20),
-                            SizedBox(
-                              width: 370,
-                              child: LoginButton(
+                          ),
+                          const SizedBox(height: 20),
+                          const Text(
+                            'Contraseña',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          const SizedBox(height: 5),
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Ingrese su contraseña';
+                              }
+                              return null;
+                            },
+                            onChanged: (value) =>
+                                loginFormProvider.password = value,
+                            obscureText: true,
+                            style: const TextStyle(color: Colors.black),
+                            decoration:
+                                AppTheme.buildInputDecoration().copyWith(
+                              suffixIcon: IconButton(
                                 onPressed: () {
-                                  loginFormProvider.validateForm();
+                                  loginFormProvider.updateObscureText();
                                 },
-                                text: 'Continuar',
-                                isFilled: true,
+                                icon: Icon(
+                                  loginFormProvider.obscureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
                               ),
                             ),
-                            const SizedBox(height: 20),
-                            LinkText(
-                              text: '¿Olvidaste Tu Contraseña?',
+                          ),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                            width: 370,
+                            child: LoginButton(
                               onPressed: () {
-                                // ignore: todo
-                                //! TODO GOTO FORGOTTEN PASS
-                                // ignore: avoid_print
-                                print('GOTO 4GO10 P4SS');
+                                loginFormProvider.validateForm();
                               },
+                              text: 'Continuar',
+                              isFilled: true,
                             ),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(height: 20),
+                          GestureDetector(
+                            onTap: () =>
+                                DoNothingAction(), // call the route here
+                            child: const Text(
+                              "¿Olvidaste tu contraseña?",
+                              style:
+                                  TextStyle(fontSize: 16.0, color: Colors.blue),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    const Text('¿No tienes cuenta CompraAquí?'),
-                    const SizedBox(height: 20),
-                    const LinkText(text: 'Crear Cuenta'),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 20),
+                  const Center(
+                    child: Text(
+                      '¿No tienes cuenta Compraqui?',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => DoNothingAction(), // call the route here
+                    child: const Text(
+                      "Crear cuenta",
+                      style: TextStyle(fontSize: 16.0, color: Colors.blue),
+                    ),
+                  ),
+                ],
               ),
             );
           },
