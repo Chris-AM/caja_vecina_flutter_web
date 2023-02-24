@@ -1,3 +1,4 @@
+export 'package:mockup_caja_vecina/ui/layouts/auth/widgets/bech_form.dart';
 export 'package:mockup_caja_vecina/ui/layouts/auth/widgets/bech_redirection_box.dart';
 export 'package:mockup_caja_vecina/ui/layouts/auth/widgets/caja_vecina_access.dart';
 export 'package:mockup_caja_vecina/ui/layouts/auth/widgets/caja_vecina_image.dart';
