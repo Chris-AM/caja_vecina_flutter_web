@@ -16,7 +16,7 @@ class AuthLayout extends StatelessWidget {
               ? _DesktopBody(
                   child,
                   430,
-                  480,
+                  790,
                 )
               : _MobileBody(
                   child,
@@ -51,16 +51,9 @@ class _DesktopBody extends StatelessWidget {
         children: [
           const CajaVecinaImage(),
           CajaVecinaAccess(
+            width: width,
             height: height,
-            width: width,
             child: child,
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          BechRedirection(
-            height: 120,
-            width: width,
           ),
         ],
       ),
@@ -87,20 +80,8 @@ class _MobileBody extends StatelessWidget {
       height: size.height,
       decoration: AppTheme.backgroundImage(),
       child: Column(
-        children: [
-          const CajaVecinaImage(),
-          CajaVecinaAccess(
-            height: height,
-            width: width,
-            child: child,
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          BechRedirection(
-            height: 120,
-            width: width,
-          ),
+        children: const [
+          CajaVecinaImage(),
         ],
       ),
     );

@@ -26,6 +26,29 @@ class AppTheme {
     ));
   }
 
+  static Container cajaVecinaImage() {
+    return Container(
+      constraints: const BoxConstraints(maxWidth: 400),
+      child: const Center(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(20, 40, 20, 40),
+          child: Image(
+            image: AssetImage('caja-vecina.png'),
+          ),
+        ),
+      ),
+    );
+  }
+
+  //? Decorations
+  static BoxDecoration loginBackgroundDecoration() {
+    return BoxDecoration(
+      borderRadius: AppTheme.rounded10,
+      boxShadow: [AppTheme.boxShadow],
+      color: AppTheme.loginBackground,
+    );
+  }
+
   //? Auth Inputs
   static InputDecoration buildInputDecoration({
     String? hint,

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:mockup_caja_vecina/shared/shared.dart';
-import 'custom_title.dart';
-
 class CajaVecinaAccess extends StatelessWidget {
   final Widget child;
   final double width;
@@ -20,12 +17,9 @@ class CajaVecinaAccess extends StatelessWidget {
       //? View Container
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: height),
-        child: Container(
-          width: width,
-          decoration: _customDecoration(),
+        child: SizedBox(
           child: Column(
             children: [
-              const CustomTitle(),
               const SizedBox(
                 height: 20,
               ),
@@ -38,14 +32,6 @@ class CajaVecinaAccess extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  BoxDecoration _customDecoration() {
-    return BoxDecoration(
-      borderRadius: AppTheme.rounded10,
-      boxShadow: [AppTheme.boxShadow],
-      color: AppTheme.loginBackground,
     );
   }
 }

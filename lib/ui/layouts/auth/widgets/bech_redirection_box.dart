@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mockup_caja_vecina/router/router.dart';
 import 'package:mockup_caja_vecina/services/navigator_service.dart';
+import 'package:mockup_caja_vecina/shared/shared.dart';
 import 'package:mockup_caja_vecina/ui/buttons/link_text.dart';
 
-import '../../shared/shared.dart';
-
-class BechRedirectionView extends StatelessWidget {
-  const BechRedirectionView({
+class BechRedirectionBox extends StatelessWidget {
+  const BechRedirectionBox({
     super.key,
   });
 
