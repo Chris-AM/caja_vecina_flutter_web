@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mockup_caja_vecina/providers/providers.dart';
+import 'package:mockup_caja_vecina/router/router.dart';
 import 'package:mockup_caja_vecina/services/services.dart';
 
 class AuthProvider extends ChangeNotifier {
@@ -15,6 +16,7 @@ class AuthProvider extends ChangeNotifier {
     LocalStorage.preferences.setString('token', _token!);
     authStatus = AuthStatus.authenticated;
     notifyListeners();
+    NavigatorService.navigateToReplacement(Flurorouter.summaryRoute);
   }
 
   bechLogin(String rut, String password) {}
