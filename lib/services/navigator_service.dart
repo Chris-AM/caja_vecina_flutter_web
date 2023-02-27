@@ -7,6 +7,10 @@ class NavigatorService {
     return navigatorKey.currentState!.pushNamed(routeName);
   }
 
+  Future navigateToReplacement(String routeName) {
+    return navigatorKey.currentState!.pushReplacementNamed(routeName);
+  }
+
   void goBack() {
     return navigatorKey.currentState!.pop();
   }

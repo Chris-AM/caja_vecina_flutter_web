@@ -12,6 +12,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return ChangeNotifierProvider(
       create: (_) => LoginFormProvider(),
       child: Builder(builder: (context) {
@@ -87,7 +88,13 @@ class LoginForm extends StatelessWidget {
                   width: 370,
                   child: LoginButton(
                     onPressed: () {
-                      loginFormProvider.validateForm();
+                      final isValid = loginFormProvider.validateForm();
+                      if (isValid) {
+                        authProvider.emailLogin(
+                          loginFormProvider.email,
+                          loginFormProvider.password,
+                        );
+                      }
                     },
                     text: 'Continuar',
                     isFilled: true,

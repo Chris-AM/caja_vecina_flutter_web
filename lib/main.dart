@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:mockup_caja_vecina/providers/providers.dart';
 import 'package:mockup_caja_vecina/router/router.dart';
-import 'package:mockup_caja_vecina/services/navigator_service.dart';
+import 'package:mockup_caja_vecina/services/services.dart';
 import 'package:mockup_caja_vecina/ui/layouts/auth/auth_layout.dart';
 
-void main() {
+void main() async {
+  await LocalStorage.configurePreferences();
   Flurorouter.configureRoutes();
-  runApp(const CajaVecina());
+  runApp(const AppState());
+}
+
+class AppState extends StatelessWidget {
+  const AppState({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ],
+      child: const CajaVecina(),
+    );
+  }
 }
 
 class CajaVecina extends StatelessWidget {

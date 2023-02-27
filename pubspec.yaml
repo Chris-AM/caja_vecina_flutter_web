@@ -36,6 +36,7 @@ dependencies:
   google_fonts: ^4.0.3
   provider: ^6.0.5
   rut_utils: ^0.1.2
+  shared_preferences: ^2.0.18
   url_launcher: ^6.1.9
 
 dev_dependencies:
