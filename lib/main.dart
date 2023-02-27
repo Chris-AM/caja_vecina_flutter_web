@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:mockup_caja_vecina/providers/providers.dart';
 import 'package:mockup_caja_vecina/router/router.dart';
 import 'package:mockup_caja_vecina/services/services.dart';
-import 'package:mockup_caja_vecina/ui/layouts/auth/auth_layout.dart';
+import 'package:mockup_caja_vecina/ui/layouts/layouts.dart';
 
 void main() async {
   await LocalStorage.configurePreferences();
@@ -18,7 +18,10 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(
+          lazy: false, //? Constructor is called immediately
+          create: (_) => AuthProvider(),
+        ),
       ],
       child: const CajaVecina(),
     );
@@ -37,7 +40,15 @@ class CajaVecina extends StatelessWidget {
         onGenerateRoute: Flurorouter.router.generator,
         navigatorKey: NavigatorService.navigatorKey,
         builder: (_, child) {
-          return AuthLayout(child: child!);
+          final authProvider = Provider.of<AuthProvider>(context);
+          if (authProvider.authStatus == AuthStatus.checking) {
+            return const SplashLayout();
+          }
+          if (authProvider.authStatus == AuthStatus.unauthenticated) {
+            return AuthLayout(child: child!);
+          } else {
+            return DashboardLayout(child: child!);
+          }
         });
   }
 }

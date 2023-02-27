@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   //? Colors
+  static const Color primaryColor = Colors.orange;
   static const Color loginBackground = Colors.white;
   static const Color fontColor = Colors.black;
   static const Color linksColor = Colors.blue;
-  static const Color button = Colors.orange;
 
   //? Shapes
   static BorderRadiusGeometry rounded10 = BorderRadius.circular(10.0);
