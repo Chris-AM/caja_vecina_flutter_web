@@ -73,6 +73,9 @@ class LoginForm extends StatelessWidget {
                   decoration: AppTheme.buildInputDecoration().copyWith(
                     suffixIcon: IconButton(
                       onPressed: () {
+                        if (loginFormProvider.password.isEmpty) {
+                          return;
+                        }
                         loginFormProvider.updateObscureText();
                       },
                       icon: Icon(

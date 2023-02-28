@@ -7,7 +7,6 @@ class LoginFormProvider extends ChangeNotifier {
   String password = '';
   bool _obscureText = true;
   bool get obscureText => _obscureText;
-  String get passwordText => password;
 
   bool validateForm() {
     return formKey.currentState!.validate() ? true : false;
@@ -15,6 +14,10 @@ class LoginFormProvider extends ChangeNotifier {
 
   updateObscureText() {
     _obscureText = !_obscureText;
+
+    if (password == '') {
+      _obscureText = true;
+    }
     notifyListeners();
   }
 }
