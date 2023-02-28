@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mockup_caja_vecina/shared/shared.dart';
-import 'package:mockup_caja_vecina/ui/buttons/buttons.dart';
 import 'package:mockup_caja_vecina/ui/layouts/auth/widgets/widgets.dart';
 
 class LoginView extends StatelessWidget {

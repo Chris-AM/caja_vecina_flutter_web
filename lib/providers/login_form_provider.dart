@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mockup_caja_vecina/providers/providers.dart';
 
 class LoginFormProvider extends ChangeNotifier {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -8,12 +9,8 @@ class LoginFormProvider extends ChangeNotifier {
   bool get obscureText => _obscureText;
   String get passwordText => password;
 
-  validateForm() {
-    if (formKey.currentState!.validate()) {
-      return true;
-    } else {
-      return false;
-    }
+  bool validateForm() {
+    return formKey.currentState!.validate() ? true : false;
   }
 
   updateObscureText() {
