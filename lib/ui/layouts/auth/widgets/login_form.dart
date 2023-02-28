@@ -16,7 +16,7 @@ class LoginForm extends StatelessWidget {
       create: (_) => LoginFormProvider(),
       child: Builder(builder: (context) {
         final loginFormProvider =
-            Provider.of<LoginFormProvider>(context, listen: false);
+            Provider.of<LoginFormProvider>(context, listen: true);
         return ConstrainedBox(
           constraints: const BoxConstraints(
             maxWidth: 370,
@@ -67,7 +67,7 @@ class LoginForm extends StatelessWidget {
                     return null;
                   },
                   onChanged: (value) => loginFormProvider.password = value,
-                  obscureText: true,
+                  obscureText: loginFormProvider.obscureText,
                   style: const TextStyle(color: Colors.black),
                   decoration: AppTheme.buildInputDecoration().copyWith(
                     suffixIcon: IconButton(
