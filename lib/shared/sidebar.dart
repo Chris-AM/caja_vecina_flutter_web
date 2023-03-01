@@ -41,6 +41,35 @@ class _SidebarState extends State<Sidebar> {
             storeIcon: Icons.store,
             userIcon: Icons.person_outline,
           ),
+          //? Menu items
+          //? Quick Summary
+          MenuItem(
+            sidebarWidth: sidebarWidth,
+            title: 'Resumen rápido',
+            icon: Icons.flash_on_outlined,
+            onPressed: () {},
+          ),
+          //? Sales
+          MenuItem(
+            sidebarWidth: sidebarWidth,
+            title: 'Ventas',
+            icon: Icons.shopping_bag_outlined,
+            onPressed: () {},
+          ),
+          //? Payments
+          MenuItem(
+            sidebarWidth: sidebarWidth,
+            title: 'Abonos',
+            icon: Icons.attach_money_outlined,
+            onPressed: () {},
+          ),
+          //? Settings
+          MenuItem(
+            sidebarWidth: sidebarWidth,
+            title: 'Configuración',
+            icon: Icons.settings_outlined,
+            onPressed: () {},
+          ),
         ],
       ),
     );
