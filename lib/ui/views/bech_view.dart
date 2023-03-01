@@ -18,12 +18,29 @@ class BechView extends StatelessWidget {
         const SizedBox(height: 20),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 15),
-          height: 350,
+          height: 450,
           decoration: AppTheme.loginBackgroundDecoration(),
-          child: Container(
-              color: Colors.grey,
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              child: const BechForm()),
+          child: Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Container(
+                  padding: const EdgeInsets.only(right: 0, left: 15),
+                  child: Image.asset(
+                    'banner_banco.png',
+                    width: 80,
+                    height: 40,
+                    alignment: Alignment.centerLeft,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                  color: const Color.fromARGB(50, 192, 192, 192),
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  child: const BechForm()),
+            ],
+          ),
         ),
         const SizedBox(height: 20),
       ],

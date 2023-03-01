@@ -17,9 +17,9 @@ class BechForm extends StatelessWidget {
       create: (_) => BechFormProvider(),
       child: Builder(builder: (context) {
         final bechFormProvider =
-            Provider.of<BechFormProvider>(context, listen: false);
+            Provider.of<BechFormProvider>(context, listen: true);
         return Container(
-          margin: const EdgeInsets.only(top: 30),
+          margin: const EdgeInsets.only(top: 20),
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Center(
             child: Column(
@@ -41,20 +41,35 @@ class BechForm extends StatelessWidget {
                           onChanged: (value) => bechFormProvider.rut = value,
                         ),
                         const SizedBox(height: 20),
-                        const InputTitles(title: 'Contraseña'),
+                        const InputTitles(title: 'Clave'),
                         TextFormField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Ingrese su contraseña';
+                              return 'Ingrese su clave';
                             }
                             return null;
                           },
                           onChanged: (value) =>
                               bechFormProvider.password = value,
-                          obscureText: true,
-                          style: const TextStyle(color: Colors.white),
+                          obscureText: bechFormProvider.obscureText,
+                          style: const TextStyle(color: Colors.black),
                           decoration:
-                              AppTheme.buildInputDecoration(hint: '**********'),
+                              AppTheme.buildInputDecoration(hint: '**********')
+                                  .copyWith(
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                if (bechFormProvider.password.isEmpty) {
+                                  return;
+                                }
+                                bechFormProvider.updateObscureText();
+                              },
+                              icon: Icon(
+                                bechFormProvider.obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 20),
                         SizedBox(
@@ -75,6 +90,7 @@ class BechForm extends StatelessWidget {
                             print('GOTO 4GO10 P4SS');
                           },
                         ),
+                        const SizedBox(height: 20),
                       ],
                     ),
                   ),

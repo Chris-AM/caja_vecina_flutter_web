@@ -18,7 +18,7 @@ class CustomTitle extends StatelessWidget {
           FittedBox(
             fit: BoxFit.contain,
             child: Text(
-              GlobalMessages.authTitle,
+              GlobalMessages.authTitleBech,
               style: GoogleFonts.montserratAlternates(
                 fontSize: 14,
                 color: AppTheme.fontColor,
