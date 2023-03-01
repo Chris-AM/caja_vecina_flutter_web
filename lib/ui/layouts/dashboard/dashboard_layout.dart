@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mockup_caja_vecina/shared/app_theme.dart';
+import 'package:mockup_caja_vecina/shared/shared.dart';
 
 class DashboardLayout extends StatelessWidget {
   final Widget child;
@@ -8,16 +10,19 @@ class DashboardLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Center(
-            child: Text('Dashboard'),
-          ),
-          Expanded(
-            child: child,
-          ),
-        ],
-      ),
-    );
+        backgroundColor: Colors.red,
+        body: Row(
+          children: [
+            //? Sidebar bigger screens
+            const Sidebar(),
+            //? Dynamic views
+            Expanded(
+              child: Container(
+                decoration: AppTheme.backgroundImage(),
+                child: child,
+              ),
+            )
+          ],
+        ));
   }
 }

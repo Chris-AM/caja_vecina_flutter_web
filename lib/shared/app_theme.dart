@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class AppTheme {
   //? Colors
   static const Color primaryColor = Colors.orange;
-  static const Color loginBackground = Colors.white;
-  static const Color fontColor = Colors.black;
+  static const Color secondaryColor = Colors.white;
   static const Color linksColor = Colors.blue;
+  static const Color fontColor = Color.fromARGB(255, 48, 61, 69);
+  static const Color thirdColor = Color.fromARGB(255, 44, 50, 54);
 
   //? Shapes
   static BorderRadiusGeometry rounded10 = BorderRadius.circular(10.0);
@@ -45,7 +46,7 @@ class AppTheme {
     return BoxDecoration(
       borderRadius: AppTheme.rounded10,
       boxShadow: [AppTheme.boxShadow],
-      color: AppTheme.loginBackground,
+      color: AppTheme.secondaryColor,
     );
   }
 
