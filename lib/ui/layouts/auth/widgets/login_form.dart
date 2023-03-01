@@ -25,7 +25,6 @@ class LoginForm extends StatelessWidget {
           child: Form(
             key: loginFormProvider.formKey,
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
