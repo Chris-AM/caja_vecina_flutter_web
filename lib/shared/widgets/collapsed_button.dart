@@ -7,7 +7,8 @@ class CollapsedButton extends StatelessWidget {
 
   const CollapsedButton({
     super.key,
-    required this.onPressed, required this.sidebarWidth,
+    required this.onPressed,
+    required this.sidebarWidth,
   });
 
   @override
@@ -26,13 +27,17 @@ class CollapsedButton extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
-            print('on pressed pressed');
             onPressed();
           },
-          icon: const Icon(
-            Icons.transit_enterexit_sharp,
-            color: Colors.white,
-          ),
+          icon: sidebarWidth == 250
+              ? const Icon(
+                  Icons.transit_enterexit_outlined,
+                  color: Colors.white,
+                )
+              : const Icon(
+                  Icons.exit_to_app_outlined,
+                  color: Colors.white,
+                ),
           color: Colors.white,
         ),
       ],

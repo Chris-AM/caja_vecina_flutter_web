@@ -10,10 +10,10 @@ class Sidebar extends StatefulWidget {
 }
 
 class _SidebarState extends State<Sidebar> {
-  double sidebarWidth = 200;
+  double sidebarWidth = 250;
   void _toggleSidebar() {
     setState(() {
-      sidebarWidth = sidebarWidth == 200 ? 50 : 200;
+      sidebarWidth = sidebarWidth == 250 ? 50 : 250;
     });
   }
 
@@ -34,7 +34,13 @@ class _SidebarState extends State<Sidebar> {
           ),
           const SizedBox(height: 20),
           //? Sidebar items
-          
+          User(
+            sidebarWidth: sidebarWidth,
+            storeName: 'Nombre del negocio',
+            userName: 'Nombre del usuario',
+            storeIcon: Icons.store,
+            userIcon: Icons.person_outline,
+          ),
         ],
       ),
     );
