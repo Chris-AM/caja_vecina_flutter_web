@@ -99,7 +99,7 @@ class LoginForm extends StatelessWidget {
                       }
                     },
                     text: 'Continuar',
-                    isFilled: true,
+                    isFilled: true, //TODO: change color dynamically
                   ),
                 ),
                 const SizedBox(height: 20),

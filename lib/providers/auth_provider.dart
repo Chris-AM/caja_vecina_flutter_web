@@ -30,6 +30,7 @@ class AuthProvider extends ChangeNotifier {
     }
     //!TODO check token in backend
 
+    //!TODO remove this delay
     await Future.delayed(const Duration(seconds: 1));
     authStatus = AuthStatus.authenticated;
     notifyListeners();
