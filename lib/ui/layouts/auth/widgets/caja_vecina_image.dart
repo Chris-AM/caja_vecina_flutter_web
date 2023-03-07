@@ -10,9 +10,7 @@ class CajaVecinaImage extends StatelessWidget {
       child: const Center(
         child: Padding(
           padding: EdgeInsets.fromLTRB(15, 40, 20, 25),
-          child: Image(
-            image: AssetImage('caja-vecina.png'),
-          ),
+          child: Image(image: AssetImage('compraaqui.png')),
         ),
       ),
     );
