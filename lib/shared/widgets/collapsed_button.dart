@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:mockup_caja_vecina/shared/shared.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+Widget myIconOpen = SvgPicture.asset(
+  'assets/left_panel_open_FILL0_wght400_GRAD0_opsz48.svg',
+  width: 24,
+  height: 24,
+  color: Color.alphaBlend(Colors.transparent, Colors.white),
+);
+
+Widget myIconClose = SvgPicture.asset(
+  'assets/left_panel_close_FILL0_wght400_GRAD0_opsz48.svg',
+  width: 24,
+  height: 24,
+  color: Color.alphaBlend(Colors.transparent, Colors.white),
+);
 
 class CollapsedButton extends StatelessWidget {
   final Function onPressed;
@@ -19,7 +34,7 @@ class CollapsedButton extends StatelessWidget {
         Visibility(
           visible: sidebarWidth != 50,
           child: const Text(
-            'Colapsar menú',
+            'Contraer menú',
             style: TextStyle(
               color: AppTheme.secondaryColor,
             ),
@@ -29,15 +44,7 @@ class CollapsedButton extends StatelessWidget {
           onPressed: () {
             onPressed();
           },
-          icon: sidebarWidth == 250
-              ? const Icon(
-                  Icons.transit_enterexit_outlined,
-                  color: Colors.white,
-                )
-              : const Icon(
-                  Icons.exit_to_app_outlined,
-                  color: Colors.white,
-                ),
+          icon: sidebarWidth == 250 ? myIconClose : myIconOpen,
           color: Colors.white,
         ),
       ],

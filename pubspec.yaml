@@ -38,6 +38,9 @@ dependencies:
   rut_utils: ^0.1.2
   shared_preferences: ^2.0.18
   url_launcher: ^6.1.9
+  material_design_icons_flutter: ^6.0.7096
+  font_awesome_flutter: ^10.4.0
+  flutter_svg: ^2.0.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
