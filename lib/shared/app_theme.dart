@@ -5,7 +5,7 @@ class AppTheme {
   static const Color primaryColor = Colors.orange;
   static const Color secondaryColor = Colors.white;
   static const Color linksColor = Colors.blue;
-  static const Color fontColor = Color.fromARGB(255, 48, 61, 69);
+  static const Color fontColor = Color.fromARGB(255, 47, 61, 69);
   static const Color thirdColor = Color.fromARGB(255, 44, 50, 54);
 
   //? Shapes

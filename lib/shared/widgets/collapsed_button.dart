@@ -28,26 +28,35 @@ class CollapsedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Visibility(
-          visible: sidebarWidth != 50,
-          child: const Text(
-            'Contraer menú',
-            style: TextStyle(
-              color: AppTheme.secondaryColor,
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(54, 69, 79, 0.5),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Visibility(
+              visible: sidebarWidth != 50,
+              child: const Text(
+                'Contraer menú',
+                style: TextStyle(
+                  color: AppTheme.secondaryColor,
+                ),
+              ),
             ),
-          ),
+            IconButton(
+              onPressed: () {
+                onPressed();
+              },
+              icon: sidebarWidth == 250 ? myIconClose : myIconOpen,
+              color: Colors.white,
+            ),
+          ],
         ),
-        IconButton(
-          onPressed: () {
-            onPressed();
-          },
-          icon: sidebarWidth == 250 ? myIconClose : myIconOpen,
-          color: Colors.white,
-        ),
-      ],
+      ),
     );
   }
 }

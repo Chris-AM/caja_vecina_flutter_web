@@ -56,6 +56,7 @@ class _SidebarState extends State<Sidebar> {
 
   Column upperMenuItems() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         //? Collapsible button
         const SizedBox(height: 20),
@@ -67,8 +68,8 @@ class _SidebarState extends State<Sidebar> {
         //? Sidebar items
         User(
           sidebarWidth: sidebarWidth,
-          storeName: 'Nombre del negocio',
-          userName: 'Nombre del usuario',
+          storeName: 'Fuente Alcapone',
+          userName: 'Rodrigo Peña',
           storeIcon: Icons.store,
           userIcon: Icons.person_outline,
         ),

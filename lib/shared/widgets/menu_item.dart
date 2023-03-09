@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class MenuItem extends StatefulWidget {
@@ -47,7 +45,7 @@ class _MenuItemState extends State<MenuItem> {
               onExit: (_) => setState(() => _isHovering = false),
               child: Container(
                 padding: EdgeInsets.only(
-                  left: (widget.sidebarWidth == 250) ? 30 : 10,
+                  left: (widget.sidebarWidth == 250) ? 6 : 10,
                 ),
                 child: Row(
                   children: [
