@@ -9,7 +9,7 @@ class CajaVecinaImage extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 400),
       child: const Center(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(15, 40, 20, 25),
+          padding: EdgeInsets.fromLTRB(15, 25, 20, 25),
           child: Image(image: AssetImage('compraaqui.png')),
         ),
       ),

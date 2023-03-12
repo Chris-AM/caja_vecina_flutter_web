@@ -1,0 +1,1 @@
+export 'package:mockup_caja_vecina/configs/api.dart';
